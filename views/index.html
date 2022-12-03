@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="catsvsdogs">
+  <head>
+    <meta charset="utf-8">
+    <title>Poll Results</title>
+    <base href="/index.html">
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+    <meta name="keywords" content="docker-compose, docker, stack">
+    <meta name="author" content="Docker">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body ng-controller="statsCtrl" >
+     <div id="background-stats">
+       <div id="background-stats-1">
+       </div><!--
+      --><div id="background-stats-2">
+      </div><!--
+      --><div id="background-stats-3">
+      </div><!--
+      --><div id="background-stats-4">
+      </div><!--
+      --><div id="background-stats-5">
+      </div>
+    </div>
+    <div id="content-container">
+      <div id="content-container-center">
+        <div id="choice">
+          <div class="choice a">
+            <div class="label">ycp</div>
+            <div class="stat">{{aPercent | number:1}}%</div>
+          </div>
+
+          <div class="choice b">
+            <div class="label">tdp</div>
+            <div class="stat">{{bPercent | number:1}}%</div>
+          </div>
+
+          <div class="choice c">
+            <div class="label">bjp</div>
+            <div class="stat">{{cPercent | number:1}}%</div>
+          </div>
+
+          <div class="choice d">
+            <div class="label">trs</div>
+            <div class="stat">{{dPercent | number:1}}%</div>
+          </div>
+
+          <div class="choice e">
+            <div class="label">jsp</div>
+            <div class="stat">{{ePercent | number:1}}%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="result">
+      <span ng-if="total == 0">No votes yet</span>
+      <span ng-if="total == 1">{{total}} vote</span>
+      <span ng-if="total >= 2">{{total}} votes</span>
+    </div>
+    <script src="socket.io.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

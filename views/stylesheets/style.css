@@ -1,0 +1,140 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+
+*{
+  box-sizing:border-box;
+}
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+  font-family: 'Open Sans';
+}
+body{
+  opacity:0;
+  transition: all 1s linear;
+}
+
+.divider{
+  height: 150px;
+  width:2px;
+  background-color: #C0C9CE;
+  position: relative;
+  top: 50%;
+  float: left;
+  transform: translateY(-50%);
+}
+
+#background-stats-1{
+  background-color: #0000FF;
+}
+
+#background-stats-2{
+  background-color: #FFFF00;
+}
+
+#background-stats-3{
+  background-color: #FFA500;
+}
+
+#background-stats-4{
+  background-color: #FF1493;
+}
+
+#background-stats-5{
+  background-color: #FF0000;
+}
+
+
+#content-container{
+  z-index:2;
+  position:relative;
+  margin:0 auto;
+  display:table;
+  padding:10px;
+  max-width:940px;
+  height:100%;
+}
+#content-container-center{
+  display:table-cell;
+  text-align:center;
+  vertical-align:middle;
+}
+#result{
+  z-index: 3;
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  color: rgb(34, 31, 31);
+  opacity: 0.5;
+  font-size: 60px;
+  font-weight: 1000;
+}
+#choice{
+  transition: all 300ms linear;
+  line-height: 1.0em;
+  background:#fff;
+  box-shadow: 10px 0 0 rgb(127 186 122), 2px 0px 20px 8px rgb(127 186 122);
+  vertical-align: text-top;
+  font-size: 30px;
+  font-weight: 600;
+  width: 1000px;
+  height: 200px;
+}
+#choice a{
+  text-decoration:none;
+}
+#choice a:hover, #choice a:focus{
+  outline:0;
+  text-decoration:underline;
+}
+
+#choice .choice{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: left;
+  padding-left: 50px;
+}
+
+#choice .choice .label{
+  text-transform: uppercase;
+}
+
+#choice .choice.a{
+  color: #00cbca;
+  float: right;
+}
+
+#choice .choice.b{
+  color: #2196f3;
+  float: left;
+}
+
+#choice .choice.c{
+  color: #21f32f;
+  float: right;
+}
+
+#choice .choice.d{
+  color: #081cf9;
+  float: right;
+}
+
+#choice .choice.e{
+  color: #f00b0b;
+  float: right;
+}
+
+#background-stats{
+  z-index:1;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+#background-stats div{
+  transition: width 400ms ease-in-out;
+  display:inline-block;
+  margin-bottom:-4px;
+  width:50%;
+  height:100%;
+}
