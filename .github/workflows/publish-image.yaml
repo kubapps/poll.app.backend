@@ -1,0 +1,30 @@
+# Build FE code and push docker image to github container registry
+# "github.actor" Varibale is The username of the user that triggered the initial workflow run
+# List of default variables : https://docs.github.com/en/actions/learn-github-actions/contexts
+
+name: Build Poll.app.backend
+on:
+  push:
+   branches: [ master ]
+  pull_request:
+   branches: [ master ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  BuildandPublish_DockerImage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_PAT }}
+      - name: Build the Docker image and Push it to GHCR
+        run: |
+          docker build . -t ghcr.io/kubapps/poll.app.backend:v1
+          docker push ghcr.io/kubapps/poll.app.backend:v1
